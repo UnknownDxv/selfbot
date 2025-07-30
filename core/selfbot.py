@@ -1,10 +1,10 @@
-from discord.ext import commands
+from discord.ext.commands import Bot
 
 __all__ = ['SelfBot']
 
-class SelfBot(commands.Bot):
-    def __init__(self, PREFIX: str):
-        super().__init__(command_prefix=PREFIX)
+class SelfBot(Bot):
+    def __init__(self):
+        super().__init__(command_prefix=(['..']))
 
     async def setup_hook(self) -> None:
         print('Hello')
