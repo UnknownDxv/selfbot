@@ -19,7 +19,7 @@ logger = getLogger('SELFBOT')
 # SelfBot class
 class SelfBot(Bot):
     def __init__(self, **kwargs: dict) -> None:
-        super().__init__(command_prefix=(['..']), **kwargs)
+        super().__init__(command_prefix=(['..']), self_bot=True, **kwargs)
         self._sync_presences = False
         self.logger = logger
     
@@ -34,11 +34,19 @@ class SelfBot(Bot):
         async with cls() as client:
             await client.start(token, reconnect=True)
 
-    async def setup_hook(self) -> None:
-        """ Setup hook """
-        await self.load_extension('cogs.hidden')
-        self.logger.info(f'Loaded {len(self.extensions)} Extensions')
-
     async def on_ready(self) -> None:
         """ On ready event"""
-        self.logger.info(f'Logged in as {self.user}')
+        self.clear_console()
+        self.logger.info(f'Logged In As {self.user}')
+        self.logger.info(f'Loaded {len(self.extensions)} Extensions')
+        self.logger.info(f'Default Prefix: {self.command_prefix}')
+        self.logger.info(f'Cached Guilds: {len(self.guilds)}')
+        self.logger.info(f'Cached Users: {len(self.users)}')
+        self.logger.info(f'Latency: {round(self.latency * 1000)}ms')
+
+    async def setup_hook(self) -> None:
+        """ Setup hook """
+        try:
+            await self.load_extension('cogs.hidden')
+        except Exception as error:
+            self.logger.error(f'Failed to load extension: {error}')

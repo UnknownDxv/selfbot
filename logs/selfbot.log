@@ -1,0 +1,92 @@
+30-07-2025 22:16:53 - [discord.client] - [INFO]: Logging in using static token.
+30-07-2025 22:16:53 - [discord.http] - [INFO]: Found user agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36, build number 424965.
+30-07-2025 22:16:58 - [discord.gateway] - [INFO]: Connected to Gateway (Session ID: b86c84f11b87a3ce9b2040bd94f2da24).
+30-07-2025 22:16:58 - [discord.state] - [WARNING]: Member list scraping failed for 1381224020585877524 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:16:58 - [discord.state] - [WARNING]: Member list scraping failed for 1387873754683543654 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:16:58 - [discord.state] - [WARNING]: Member list scraping failed for 1333031195688042597 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:16:58 - [discord.state] - [WARNING]: Member list scraping failed for 979291341127311360 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:16:58 - [discord.state] - [WARNING]: Member list scraping failed for 1318586070212022352 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:16:59 - [SELFBOT] - [INFO]: Logged In As innocent_jimmy#0
+30-07-2025 22:16:59 - [SELFBOT] - [INFO]: Loaded 1 Extensions
+30-07-2025 22:16:59 - [SELFBOT] - [INFO]: Default Prefix: ['..']
+30-07-2025 22:16:59 - [SELFBOT] - [INFO]: Cached Guilds: 74
+30-07-2025 22:16:59 - [SELFBOT] - [INFO]: Cached Users: 4969
+30-07-2025 22:16:59 - [SELFBOT] - [INFO]: Latency: 21ms
+30-07-2025 22:18:20 - [discord.ext.commands.bot] - [ERROR]: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "ping" is not found
+30-07-2025 22:18:20 - [discord.ext.commands.bot] - [ERROR]: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "ping" is not found
+30-07-2025 22:20:21 - [discord.ext.commands.bot] - [ERROR]: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "." is not found
+30-07-2025 22:21:24 - [discord.client] - [INFO]: Logging in using static token.
+30-07-2025 22:21:24 - [discord.http] - [INFO]: Found user agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36, build number 424965.
+30-07-2025 22:21:27 - [discord.gateway] - [INFO]: Connected to Gateway (Session ID: e1c3e6ba85eb8e0141f2becfec9d5fde).
+30-07-2025 22:21:28 - [discord.state] - [WARNING]: Member list scraping failed for 1381224020585877524 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:21:28 - [discord.state] - [WARNING]: Member list scraping failed for 1387873754683543654 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:21:28 - [discord.state] - [WARNING]: Member list scraping failed for 1333031195688042597 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:21:28 - [discord.state] - [WARNING]: Member list scraping failed for 979291341127311360 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:21:28 - [discord.state] - [WARNING]: Member list scraping failed for 1318586070212022352 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:21:29 - [SELFBOT] - [INFO]: Logged In As innocent_jimmy#0
+30-07-2025 22:21:29 - [SELFBOT] - [INFO]: Loaded 1 Extensions
+30-07-2025 22:21:29 - [SELFBOT] - [INFO]: Default Prefix: ['..']
+30-07-2025 22:21:29 - [SELFBOT] - [INFO]: Cached Guilds: 74
+30-07-2025 22:21:29 - [SELFBOT] - [INFO]: Cached Users: 4969
+30-07-2025 22:21:29 - [SELFBOT] - [INFO]: Latency: 24ms
+30-07-2025 22:21:40 - [discord.ext.commands.bot] - [ERROR]: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "ping" is not found
+30-07-2025 22:21:56 - [discord.ext.commands.bot] - [ERROR]: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "ping" is not found
+30-07-2025 22:23:22 - [discord.client] - [INFO]: Logging in using static token.
+30-07-2025 22:23:23 - [discord.http] - [INFO]: Found user agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36, build number 424965.
+30-07-2025 22:23:26 - [discord.gateway] - [INFO]: Connected to Gateway (Session ID: 57189a72ce68ac8015dd98c1372ba21d).
+30-07-2025 22:23:26 - [discord.state] - [WARNING]: Member list scraping failed for 1381224020585877524 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:23:26 - [discord.state] - [WARNING]: Member list scraping failed for 1387873754683543654 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:23:26 - [discord.state] - [WARNING]: Member list scraping failed for 1333031195688042597 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:23:26 - [discord.state] - [WARNING]: Member list scraping failed for 979291341127311360 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:23:26 - [discord.state] - [WARNING]: Member list scraping failed for 1318586070212022352 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:23:28 - [SELFBOT] - [INFO]: Logged In As innocent_jimmy#0
+30-07-2025 22:23:28 - [SELFBOT] - [INFO]: Loaded 1 Extensions
+30-07-2025 22:23:28 - [SELFBOT] - [INFO]: Default Prefix: ['..']
+30-07-2025 22:23:28 - [SELFBOT] - [INFO]: Cached Guilds: 74
+30-07-2025 22:23:28 - [SELFBOT] - [INFO]: Cached Users: 4989
+30-07-2025 22:23:28 - [SELFBOT] - [INFO]: Latency: 20ms
+30-07-2025 22:24:15 - [discord.ext.commands.bot] - [ERROR]: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "ping" is not found
+30-07-2025 22:26:22 - [discord.client] - [INFO]: Logging in using static token.
+30-07-2025 22:26:22 - [discord.http] - [INFO]: Found user agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36, build number 424965.
+30-07-2025 22:26:25 - [discord.gateway] - [INFO]: Connected to Gateway (Session ID: fce6841e20d0f095cf833d1837f6dcf5).
+30-07-2025 22:26:25 - [discord.state] - [WARNING]: Member list scraping failed for 1381224020585877524 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:26:25 - [discord.state] - [WARNING]: Member list scraping failed for 1387873754683543654 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:26:25 - [discord.state] - [WARNING]: Member list scraping failed for 1333031195688042597 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:26:25 - [discord.state] - [WARNING]: Member list scraping failed for 979291341127311360 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:26:25 - [discord.state] - [WARNING]: Member list scraping failed for 1318586070212022352 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:26:27 - [SELFBOT] - [INFO]: Logged In As innocent_jimmy#0
+30-07-2025 22:26:27 - [SELFBOT] - [INFO]: Loaded 1 Extensions
+30-07-2025 22:26:27 - [SELFBOT] - [INFO]: Default Prefix: ['..']
+30-07-2025 22:26:27 - [SELFBOT] - [INFO]: Cached Guilds: 74
+30-07-2025 22:26:27 - [SELFBOT] - [INFO]: Cached Users: 4981
+30-07-2025 22:26:27 - [SELFBOT] - [INFO]: Latency: 24ms
+30-07-2025 22:26:36 - [discord.ext.commands.bot] - [ERROR]: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "ping" is not found
+30-07-2025 22:26:36 - [discord.ext.commands.bot] - [ERROR]: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "ping" is not found
+30-07-2025 22:28:17 - [discord.client] - [INFO]: Logging in using static token.
+30-07-2025 22:28:17 - [discord.http] - [INFO]: Found user agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36, build number 424965.
+30-07-2025 22:28:20 - [discord.gateway] - [INFO]: Connected to Gateway (Session ID: e46c3fe2e877af7a5e895c8474403016).
+30-07-2025 22:28:21 - [discord.state] - [WARNING]: Member list scraping failed for 1381224020585877524 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:28:21 - [discord.state] - [WARNING]: Member list scraping failed for 1387873754683543654 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:28:21 - [discord.state] - [WARNING]: Member list scraping failed for 1333031195688042597 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:28:21 - [discord.state] - [WARNING]: Member list scraping failed for 979291341127311360 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:28:21 - [discord.state] - [WARNING]: Member list scraping failed for 1318586070212022352 (Failed to automatically choose channels; please specify them manually).
+30-07-2025 22:28:22 - [SELFBOT] - [INFO]: Logged In As innocent_jimmy#0
+30-07-2025 22:28:22 - [SELFBOT] - [INFO]: Loaded 1 Extensions
+30-07-2025 22:28:22 - [SELFBOT] - [INFO]: Default Prefix: ['..']
+30-07-2025 22:28:22 - [SELFBOT] - [INFO]: Cached Guilds: 74
+30-07-2025 22:28:22 - [SELFBOT] - [INFO]: Cached Users: 4984
+30-07-2025 22:28:22 - [SELFBOT] - [INFO]: Latency: 16ms
+30-07-2025 22:28:28 - [discord.ext.commands.bot] - [ERROR]: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "ping" is not found
+30-07-2025 22:28:47 - [discord.ext.commands.bot] - [ERROR]: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "ping" is not found
+30-07-2025 22:29:26 - [discord.ext.commands.bot] - [ERROR]: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command ".hey" is not found
