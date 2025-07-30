@@ -8,7 +8,7 @@ TOKEN = os.getenv('USER_TOKEN')
 
 async def main() -> None:
     async with SelfBot() as client:
-        await client.start(token=TOKEN, reconnect=True) 
+        await client.init(token=TOKEN) 
 
 if __name__ == "__main__":
     try:
