@@ -15,13 +15,16 @@ logger = basicConfig(
     handlers=[FileHandler('logs/selfbot.log', 'a', 'utf-8'), StreamHandler()]
 )
 
-# Get logger
+# Get logger and prefix
 logger = getLogger('SELFBOT')
+PREFIX = os.getenv('PREFIX', '..')
 
 # SelfBot class
 class SelfBot(Bot):
     def __init__(self, **kwargs: dict) -> None:
-        super().__init__(command_prefix=(['..']), self_bot=True, **kwargs)
+        kwargs.setdefault('command_prefix', PREFIX)
+        kwargs.setdefault('self_bot', True)
+        super().__init__(**kwargs)
         self._sync_presences = False
         self.messages_sent = 0
         self.logger = logger
