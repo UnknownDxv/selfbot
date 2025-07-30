@@ -393,3 +393,31 @@ discord.ext.commands.errors.CommandNotFound: Command "." is not found
 discord.ext.commands.errors.CommandNotFound: Command ".." is not found
 31-07-2025 01:07:18 - [discord.ext.commands.bot] - [ERROR]: Ignoring exception in command None
 discord.ext.commands.errors.CommandNotFound: Command ".....h-h-hi.........." is not found
+31-07-2025 01:11:08 - [discord.client] - [INFO]: Logging in using static token.
+31-07-2025 01:11:08 - [discord.http] - [INFO]: Found user agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36, build number 424965.
+31-07-2025 01:11:12 - [discord.gateway] - [INFO]: Connected to Gateway (Session ID: 36cf1432fd323e814135e7b5a06dd33a).
+31-07-2025 01:11:12 - [discord.state] - [WARNING]: Member list scraping failed for 1381224020585877524 (Failed to automatically choose channels; please specify them manually).
+31-07-2025 01:11:12 - [discord.state] - [WARNING]: Member list scraping failed for 1387873754683543654 (Failed to automatically choose channels; please specify them manually).
+31-07-2025 01:11:12 - [discord.state] - [WARNING]: Member list scraping failed for 1333031195688042597 (Failed to automatically choose channels; please specify them manually).
+31-07-2025 01:11:12 - [discord.state] - [WARNING]: Member list scraping failed for 979291341127311360 (Failed to automatically choose channels; please specify them manually).
+31-07-2025 01:11:12 - [discord.state] - [WARNING]: Member list scraping failed for 1318586070212022352 (Failed to automatically choose channels; please specify them manually).
+31-07-2025 01:11:13 - [SELFBOT] - [INFO]: Logged In As innocent_jimmy#0
+31-07-2025 01:11:13 - [SELFBOT] - [INFO]: Loaded 1 Extensions
+31-07-2025 01:11:13 - [SELFBOT] - [INFO]: Default Prefix: ['..']
+31-07-2025 01:11:13 - [SELFBOT] - [INFO]: Cached Guilds: 74
+31-07-2025 01:11:13 - [SELFBOT] - [INFO]: Cached Users: 4922
+31-07-2025 01:11:13 - [SELFBOT] - [INFO]: Latency: 20ms
+31-07-2025 01:19:14 - [discord.client] - [INFO]: Logging in using static token.
+31-07-2025 01:19:14 - [discord.http] - [INFO]: Found user agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36, build number 424965.
+31-07-2025 01:19:18 - [discord.gateway] - [INFO]: Connected to Gateway (Session ID: 042d9e72f596e28fa8a668dba0a4748d).
+31-07-2025 01:19:19 - [discord.state] - [WARNING]: Member list scraping failed for 1381224020585877524 (Failed to automatically choose channels; please specify them manually).
+31-07-2025 01:19:19 - [discord.state] - [WARNING]: Member list scraping failed for 1387873754683543654 (Failed to automatically choose channels; please specify them manually).
+31-07-2025 01:19:19 - [discord.state] - [WARNING]: Member list scraping failed for 1333031195688042597 (Failed to automatically choose channels; please specify them manually).
+31-07-2025 01:19:19 - [discord.state] - [WARNING]: Member list scraping failed for 979291341127311360 (Failed to automatically choose channels; please specify them manually).
+31-07-2025 01:19:19 - [discord.state] - [WARNING]: Member list scraping failed for 1318586070212022352 (Failed to automatically choose channels; please specify them manually).
+31-07-2025 01:19:22 - [SELFBOT] - [INFO]: Logged In As innocent_jimmy#0
+31-07-2025 01:19:22 - [SELFBOT] - [INFO]: Loaded 1 Extensions
+31-07-2025 01:19:22 - [SELFBOT] - [INFO]: Default Prefix: ['..']
+31-07-2025 01:19:22 - [SELFBOT] - [INFO]: Cached Guilds: 74
+31-07-2025 01:19:22 - [SELFBOT] - [INFO]: Cached Users: 4926
+31-07-2025 01:19:22 - [SELFBOT] - [INFO]: Latency: 33ms

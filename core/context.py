@@ -1,4 +1,3 @@
-from pickletools import int4
 from typing import Any, List, Optional, Union
 from aiohttp import ClientSession
 from discord import Message
@@ -33,7 +32,7 @@ class CustomContext(Context):
         kwargs.setdefault('bulk', False)
         return await self.channel.purge(*args, **kwargs)
 
-    async def self_purge(self, limit: int4 = 10) -> List[Message]:
+    async def self_purge(self, limit: int=10) -> List[Message]:
         '''Purges selfbot's messages in any channel until limit is reached'''
         deleted_messages: List[Message] = []
         after: Optional[Message] = None
@@ -75,9 +74,10 @@ class CustomContext(Context):
             return False
         return True
 
-    async def send_code_block(self, language: str, message: str) -> Message:
+    async def send_codeblock(self, language: str, message: str) -> Message:
         '''Send a codeblock message'''
         if not message or message.isspace():
             raise ValueError("Message content cannot be empty or only whitespace")
         code_block = f"```{language}\n{message}\n```"
         return await self.send(code_block)
+

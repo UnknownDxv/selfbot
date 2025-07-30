@@ -1,5 +1,5 @@
 from logging import getLogger
-from core import SelfBot
+from core.selfbot import SelfBot
 import os, asyncio, dotenv
 
 dotenv.load_dotenv()
