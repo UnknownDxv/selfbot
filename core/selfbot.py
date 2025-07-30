@@ -24,6 +24,7 @@ class SelfBot(Bot):
     def __init__(self, **kwargs: dict) -> None:
         kwargs.setdefault('command_prefix', PREFIX)
         kwargs.setdefault('self_bot', True)
+        kwargs.setdefault('chunk_guilds_at_startup', False)
         super().__init__(**kwargs)
         self._sync_presences = False
         self.messages_sent = 0
