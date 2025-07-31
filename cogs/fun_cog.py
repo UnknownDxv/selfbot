@@ -13,7 +13,7 @@ class FunCog(Cog):
         name="8ball",
         description="Get an answer to your question",
         aliases=["8b", "ask", "eightball"],
-        usage="<question>",
+        usage="8ball <question>",
     )
     async def _8ball(self, ctx: CustomContext, *, question: str) -> None:
         pass
