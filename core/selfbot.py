@@ -1,4 +1,5 @@
 from __future__ import annotations
+from aiohttp import ClientSession
 from discord import Message
 from discord.ext.commands import Bot
 from logging import INFO, FileHandler, StreamHandler, getLogger, basicConfig
@@ -36,6 +37,7 @@ class SelfBot(Bot):
         super().__init__(**kwargs)
         self.messages_sent = 0
         self.logger = logger
+        self.session = ClientSession()
 
     @staticmethod
     def clear_console() -> None:
@@ -51,7 +53,7 @@ class SelfBot(Bot):
     async def on_ready(self) -> None:
         '''Logs selfbot status and details when connected to Discord'''
         self.clear_console()
-        self.logger.info(f"Logged In As {self.user}")
+        self.logger.info(f"Logged In As @{self.user} ({self.user.id})")
         self.logger.info(f"Loaded {len(self.extensions)} Extensions")
         self.logger.info(f"Default Prefix: {self.command_prefix}")
         self.logger.info(f"Cached Guilds: {len(self.guilds)}")
@@ -69,7 +71,7 @@ class SelfBot(Bot):
         '''Loads bot extensions during setup'''
         for filename in os.listdir('cogs'):
             if filename.endswith('.py'):
-                cog_file = f'cogs.{filename[-3]}'
+                cog_file = f'cogs.{filename[:-3]}'
                 try:
                     await self.load_extension(cog_file)
                 except Exception as error:
