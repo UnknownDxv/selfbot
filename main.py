@@ -1,8 +1,9 @@
+from __future__ import annotations
 from logging import getLogger
 from discord.errors import LoginFailure
 from core.selfbot import SelfBot
 import os, asyncio, dotenv
-from asyncio import run, sleep
+import time
 
 dotenv.load_dotenv()
 logger = getLogger('MAIN')
@@ -12,7 +13,7 @@ def setup_env() -> None:
     '''Set up the .env file with user token and prefix.'''
     logger.info("Setting up .env file...")
     os.system("cls" if os.name == "nt" else "clear")
-    run(sleep(3))
+    time.sleep(3)
 
     input_token = input("Please enter your Discord user token:\n>>> ").strip()
     if not input_token:
@@ -35,8 +36,8 @@ async def main() -> None:
         logger.critical("Your .env file missing or USER_TOKEN not set.")
         setup_env()
 
-    async with SelfBot() as client:
-        await client.init(token=TOKEN) 
+    client = SelfBot()
+    await client.init(token=TOKEN) 
 
 if __name__ == "__main__":
     try:
