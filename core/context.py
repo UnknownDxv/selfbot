@@ -27,7 +27,7 @@ class CustomContext(Context):
         '''Deletes the ctx message'''
         return await self.message.delete()
 
-    async def purge(self, *args: Any, **kwargs: Any) -> List[Message]:
+    async def purge(self, *args, **kwargs) -> List[Message]:
         '''Shortcut to channel.purge, preset for selfbot'''
         kwargs.setdefault('bulk', False)
         return await self.channel.purge(*args, **kwargs)
@@ -69,15 +69,24 @@ class CustomContext(Context):
             check=lambda m: m.author == self.author and m.channel == self.channel, 
             timeout=30
         )
-        fals: List[str] = ['n', 'no', 'false', '0', 'fuck off', 'f']
+        fals: List[str] = ['n', 'no', 'false', '0']
         if resp.content.lower().strip() in fals:
             return False
         return True
 
-    async def send_codeblock(self, language: str, message: str) -> Message:
+    async def send_codeblock(self, language: str, content: str) -> Message:
         '''Send a codeblock message'''
-        if not message or message.isspace():
+        if not content or content.isspace():
             raise ValueError("Message content cannot be empty or only whitespace")
-        code_block = f"```{language}\n{message}\n```"
+        code_block = f"```{language}\n{content}\n```"
         return await self.send(code_block)
-
+    
+    async def edit_or_send(self, *args, **kwargs) -> Message:
+        ''' If ctx.message exist then edit else send new message '''
+        try:
+            if getattr(self, 'message', None):
+                return await self.message.edit(*args, **kwargs)
+            else:
+                return await self.send(*args, **kwargs)
+        except Exception:
+            return await self.send(*args, **kwargs)

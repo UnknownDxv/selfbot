@@ -7,11 +7,10 @@ class Hidden(Cog):
     def __init__(self, client: SelfBot) -> None:
         self.client = client
 
-    @commands.command(name='ping', aliases=['p'])
+    @commands.command(aliases=['pong'])
     async def ping(self, ctx: CustomContext) -> None:
-        """ Shows the bot's latency """
-        await ctx.send_codeblock('md', f'# 🏓 Pong! {round(self.client.latency * 1000)}ms')
-
+        ''' Shows the bot's latency '''
+        await ctx.edit_or_send(f'🏓 Pong! {round(self.client.latency * 1000)}ms', delete_after=10)
 
 async def setup(client: SelfBot) -> None:
     await client.add_cog(Hidden(client))
