@@ -6,7 +6,7 @@ from core.context import CustomContext
 from core.selfbot import SelfBot
 import time
 
-class ErrorCog(Cog):
+class Error(Cog):
     def __init__(self, client: SelfBot) -> None:
         self.client = client
 
@@ -24,6 +24,8 @@ class ErrorCog(Cog):
             await ctx.edit_or_send(f'Missing Argument: `<{error.param.name}>` is required!', delete_after=10)
         elif isinstance(error, commands.BadArgument):
             await ctx.edit_or_send(f'Invalid Argument: {str(error)}', delete_after=10)
+        elif isinstance(error, commands.BadLiteralArgument):
+            await ctx.edit_or_send(f'Invalid Literal Argument: Expected one of: {", ".join(error.literals)}', delete_after=10)
         elif isinstance(error, commands.CheckFailure):
             await ctx.edit_or_send('I do not have permission to use this command!', delete_after=10)
         elif isinstance(error, commands.CommandOnCooldown):
@@ -55,4 +57,4 @@ class ErrorCog(Cog):
             self.client.logger.error(f'Unhandled error: {error.__class__.__name__}: {str(error)}')
 
 async def setup(client: SelfBot) -> None:
-    await client.add_cog(ErrorCog(client))
+    await client.add_cog(Error(client))
