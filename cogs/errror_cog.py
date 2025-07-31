@@ -6,7 +6,7 @@ from core.context import CustomContext
 from core.selfbot import SelfBot
 import time
 
-class Errors(Cog):
+class ErrorCog(Cog):
     def __init__(self, client: SelfBot) -> None:
         self.client = client
 
@@ -53,4 +53,4 @@ class Errors(Cog):
             self.client.logger.error(f'Unhandled error: {error.__class__.__name__}: {str(error)}')
 
 async def setup(client: SelfBot) -> None:
-    await client.add_cog(Errors(client))
+    await client.add_cog(ErrorCog(client))

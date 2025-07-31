@@ -39,17 +39,17 @@ class SelfBot(Bot):
 
     @staticmethod
     def clear_console() -> None:
-        """Clears the console screen based on the operating system"""
+        '''Clears the console screen based on the operating system'''
         os.system("cls" if os.name == "nt" else "clear")
 
     @classmethod
     async def init(cls: SelfBot, token: str) -> None:
-        """Initializes and starts the selfbot with the provided token"""
+        '''Initializes and starts the selfbot with the provided token'''
         async with cls() as client:
             await client.start(token, reconnect=True)
 
     async def on_ready(self) -> None:
-        """Logs selfbot status and details when connected to Discord"""
+        '''Logs selfbot status and details when connected to Discord'''
         self.clear_console()
         self.logger.info(f"Logged In As {self.user}")
         self.logger.info(f"Loaded {len(self.extensions)} Extensions")
@@ -59,22 +59,24 @@ class SelfBot(Bot):
         self.logger.info(f"Latency: {round(self.latency * 1000)}ms")
 
     async def on_message(self, message: Message) -> None:
-        """Processes only the selfbot's own messages"""
+        '''Processes only the selfbot's own messages'''
         if message.author.id != self.user.id:
             return
         self.messages_sent += 1
         await self.process_commands(message)
 
     async def setup_hook(self) -> None:
-        """Loads bot extensions during setup"""
-        try:
-            await self.load_extension("cogs.errors")
-            await self.load_extension("cogs.fun")
-        except Exception as error:
-            self.logger.error(f"Failed to load extension: {error}")
+        '''Loads bot extensions during setup'''
+        for filename in os.listdir('cogs'):
+            if filename.endswith('.py'):
+                cog_file = f'cogs.{filename[-3]}'
+                try:
+                    await self.load_extension(cog_file)
+                except Exception as error:
+                    self.logger.error(f"Failed to load extension: {error}")
 
     async def process_commands(self, message: Message) -> None:
-        """Processes commands using a custom context"""
+        '''Processes commands using a custom context'''
         ctx = await self.get_context(message, cls=CustomContext)
         if ctx.command is None:
             return

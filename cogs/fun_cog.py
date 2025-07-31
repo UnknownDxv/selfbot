@@ -5,7 +5,7 @@ from core.context import CustomContext
 from core.selfbot import SelfBot
 
 
-class Fun(Cog):
+class FunCog(Cog):
     def __init__(self, client: SelfBot) -> None:
         self.client = client
 
@@ -20,4 +20,4 @@ class Fun(Cog):
 
 
 async def setup(client: SelfBot) -> None:
-    await client.add_cog(Fun(client))
+    await client.add_cog(FunCog(client))
