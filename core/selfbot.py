@@ -24,6 +24,7 @@ PREFIX = os.getenv("PREFIX", "..")
 # SelfBot class
 class SelfBot(Bot):
     def __init__(self, **kwargs: dict) -> None:
+
         kwargs.setdefault("command_prefix", PREFIX)
         kwargs.setdefault("self_bot", True)
         kwargs.setdefault("chunk_guilds_at_startup", False)
@@ -31,6 +32,7 @@ class SelfBot(Bot):
         kwargs.setdefault("strip_after_prefix", True)
         kwargs.setdefault("help_command", None)
         kwargs.setdefault("sync_presence", False)
+
         super().__init__(**kwargs)
         self.messages_sent = 0
         self.logger = logger
@@ -53,7 +55,7 @@ class SelfBot(Bot):
         self.logger.info(f"Loaded {len(self.extensions)} Extensions")
         self.logger.info(f"Default Prefix: {self.command_prefix}")
         self.logger.info(f"Cached Guilds: {len(self.guilds)}")
-        self.logger.info(f"Cached Users: {len(self.users)}")
+        self.logger.info(f"Cached Members: {sum(g.member_count for g in self.guilds)}")
         self.logger.info(f"Latency: {round(self.latency * 1000)}ms")
 
     async def on_message(self, message: Message) -> None:
@@ -66,7 +68,8 @@ class SelfBot(Bot):
     async def setup_hook(self) -> None:
         """Loads bot extensions during setup"""
         try:
-            await self.load_extension("cogs.hidden")
+            await self.load_extension("cogs.errors")
+            await self.load_extension("cogs.fun")
         except Exception as error:
             self.logger.error(f"Failed to load extension: {error}")
 

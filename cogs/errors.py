@@ -16,12 +16,12 @@ class Errors(Cog):
         if hasattr(error, 'handled') and error.handled:
             return 
 
-        if isinstance(error, commands.MissingRequiredArgument):
+        if isinstance(error, commands.CommandNotFound):
+            return
+        elif isinstance(error, commands.MissingRequiredArgument):
             await ctx.edit_or_send(f'Missing Argument: `<{error.param.name}>` is required!', delete_after=10)
         elif isinstance(error, commands.BadArgument):
             await ctx.edit_or_send(f'Invalid Argument: {str(error)}', delete_after=10)
-        elif isinstance(error, commands.CommandNotFound):
-            return
         elif isinstance(error, commands.CheckFailure):
             await ctx.edit_or_send('I do not have permission to use this command!', delete_after=10)
         elif isinstance(error, commands.CommandOnCooldown):

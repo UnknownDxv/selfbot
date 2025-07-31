@@ -12,12 +12,12 @@ class CustomContext(Context):
         super().__init__(**kwargs)
 
     def session(self) -> ClientSession:
-        """Returns the bot's aiohttp client session"""
+        '''Returns the bot's aiohttp client session'''
         return self.bot.session
 
     @staticmethod
     def is_valid_image_url(url: str) -> Optional[str]:
-        """Checks if a url leads to an image."""
+        '''Checks if a url leads to an image.'''
         types: List[str] = [".png", ".jpg", ".gif", ".bmp", ".webp"]
         parsed: urlparse.ParseResult = urlparse(url)
         if any(parsed.path.endswith(i) for i in types):
@@ -25,16 +25,16 @@ class CustomContext(Context):
         return None
 
     async def delete(self) -> Message:
-        """Deletes the ctx message"""
+        '''Deletes the ctx message'''
         return await self.message.delete()
 
     async def purge(self, *args, **kwargs) -> List[Message]:
-        """Shortcut to channel.purge, preset for selfbot"""
+        '''Shortcut to channel.purge, preset for selfbot'''
         kwargs.setdefault("bulk", False)
         return await self.channel.purge(*args, **kwargs)
 
     async def self_purge(self, limit: int = 10) -> List[Message]:
-        """Purges selfbot's messages in any channel until limit is reached"""
+        '''Purges selfbot's messages in any channel until limit is reached'''
         deleted_messages: List[Message] = []
         after: Optional[Message] = None
         while len(deleted_messages) < limit:
@@ -53,7 +53,7 @@ class CustomContext(Context):
         return deleted_messages
 
     async def get_ban(self, name_or_id: Union[str, int]) -> Optional[BanEntry]:
-        """Helper function to retrieve a banned user"""
+        '''Helper function to retrieve a banned user'''
         name_or_id = str(name_or_id)
         async for ban in self.guild.bans():
             if name_or_id.isdigit() and ban.user.id == int(name_or_id):
@@ -63,7 +63,7 @@ class CustomContext(Context):
         return None
 
     async def confirm(self, message: Optional[str] = None) -> bool:
-        """Small helper for confirmation messages."""
+        '''Small helper for confirmation messages.'''
         await self.send(message or "⚠️ Are you sure you want to proceed? `(Y/N)`")
         resp: Message = await self.bot.wait_for(
             "message",
@@ -76,14 +76,14 @@ class CustomContext(Context):
         return True
 
     async def send_codeblock(self, language: str, content: str) -> Message:
-        """Send a codeblock message"""
+        '''Send a codeblock message'''
         if not content or content.isspace():
             raise ValueError("Message content cannot be empty or only whitespace")
         code_block = f"```{language}\n{content}\n```"
         return await self.send(code_block)
 
     async def edit_or_send(self, *args, **kwargs) -> Message:
-        """If ctx.message exist then edit else send new message"""
+        '''If ctx.message exist then edit else send new message'''
         try:
             if getattr(self, "message", None):
                 return await self.message.edit(*args, **kwargs)

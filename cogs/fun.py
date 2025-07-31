@@ -13,7 +13,7 @@ class Fun(Cog):
         name="8ball",
         description="Get an answer to your question",
         aliases=["8b", "ask", "eightball"],
-        usage="<question>"
+        usage="<question>",
     )
     async def _8ball(self, ctx: CustomContext, *, question: str) -> None:
         pass
