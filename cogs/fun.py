@@ -7,7 +7,6 @@ from core.selfbot import SelfBot
 import asyncio, random
 
 
-
 class FunCog(Cog):
     def __init__(self, client: SelfBot) -> None:
         self.client = client
