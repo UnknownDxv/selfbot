@@ -18,6 +18,8 @@ class ErrorCog(Cog):
 
         if isinstance(error, commands.CommandNotFound):
             return
+        elif isinstance(error, commands.CheckFailure):
+            await ctx.edit_or_send(f'Check Failure: {str(error)}', delete_after=10)
         elif isinstance(error, commands.MissingRequiredArgument):
             await ctx.edit_or_send(f'Missing Argument: `<{error.param.name}>` is required!', delete_after=10)
         elif isinstance(error, commands.BadArgument):
