@@ -11,12 +11,7 @@ class Abuse(Cog):
     def __init__(self, client: SelfBot) -> None:
         self.client = client
 
-    @commands.command(
-        name="spam",
-        description="Spam  a message multiple times.",
-        aliases=['sp'],
-        usage="<message> <amount> <delay>"
-    )
+    @commands.command(name="spam", description="Spam  a message multiple times.", aliases=['sp'])
     async def spam(self, ctx: CustomContext, amount: int, delay: int, * , message: str) -> None:
         '''Spam a message multiple times.'''
         if not (3 <= amount <= 100):

@@ -12,12 +12,7 @@ class FunCog(Cog):
     def __init__(self, client: SelfBot) -> None:
         self.client = client
 
-    @commands.command(
-        name="8ball",
-        description="Get an answer to your question",
-        aliases=["8b", "ask", "eightball"],
-        usage="8ball <question>",
-    )
+    @commands.command(name="8ball", description="Get an answer to your question", aliases=["8b", "ask", "eightball"])
     async def _8ball(self, ctx: CustomContext, *, question: str) -> None:
         """Get an answer to your question"""
         responses = [
