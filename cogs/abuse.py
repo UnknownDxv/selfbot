@@ -8,18 +8,18 @@ import asyncio, random
 
 
 class Abuse(Cog):
-    def __init__(self, client: SelfBot) -> None:
-        self.client = client
+    def __init__(self, bot: SelfBot) -> None:
+        self.bot = bot
 
     @commands.command(name="spam", description="Spam  a message multiple times.", aliases=['sp'])
     async def spam(self, ctx: CustomContext, amount: int, delay: int, * , message: str) -> None:
         '''Spam a message multiple times.'''
         if not (3 <= amount <= 100):
-            return await ctx.edit_or_send("Amount must be between 3 and 100.", delete_after=5)
+            return await ctx.failure("Amount must be between 3 and 100.", delete_after=5)
         if delay < 0:
-            return await ctx.edit_or_send("Delay cannot be negative.", delete_after=5)
+            return await ctx.failure("Delay cannot be negative.", delete_after=5)
         
-        await ctx.delete()
+        await ctx.success(delete=True)
         for _ in range(amount):
             try:
                 await ctx.send(message)
@@ -31,5 +31,5 @@ class Abuse(Cog):
                     await ctx.send(message)
 
     
-async def setup(client: SelfBot) -> None:
-    await client.add_cog(Abuse(client))
+async def setup(bot: SelfBot) -> None:
+    await bot.add_cog(Abuse(bot))

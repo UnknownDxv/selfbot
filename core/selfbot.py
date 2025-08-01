@@ -4,7 +4,7 @@ from discord import Message
 from discord.ext.commands import Bot
 from logging import INFO, FileHandler, StreamHandler, getLogger, basicConfig
 from core.context import CustomContext
-import os
+import os, shutil, sys
 
 # Make logs directory if it doesn't exist
 os.makedirs(name="logs", exist_ok=True)
@@ -17,8 +17,11 @@ logger = basicConfig(
     handlers=[FileHandler("logs/selfbot.log", "a", "utf-8"), StreamHandler()],
 )
 
-# Get logger and prefix
+# Get logger 
 logger = getLogger("SELFBOT")
+
+# TOKEN and PREFIX from env
+TOKEN = os.getenv("TOKEN")
 PREFIX = os.getenv("PREFIX", "..")
 
 
@@ -32,23 +35,41 @@ class SelfBot(Bot):
         kwargs.setdefault("case_insensitive", True)
         kwargs.setdefault("strip_after_prefix", True)
         kwargs.setdefault("help_command", None)
-        kwargs.setdefault("sync_presence", False)
+        kwargs.setdefault("sync_presence", True)
 
         super().__init__(**kwargs)
         self.messages_sent = 0
         self.logger = logger
         self.session = ClientSession()
 
+    @property
+    def token(self) -> str:
+        '''Returns your token wherever it is'''
+        if not TOKEN: self.run_wizard()
+        else: return TOKEN.strip('\"')
+    
+    @staticmethod
+    def run_wizard():
+        '''Wizard for first start'''
+        print('-' * shutil.get_terminal_size().columns)
+        input_token = input("Please enter your discord user token:\n>>> ").strip('\"')
+        print('-' * shutil.get_terminal_size().columns)
+        input_prefix = input("Please set your selfbot prefix:\n>>> ").strip('\"')
+        env_content = f"TOKEN={input_token}\nPREFIX={input_prefix}\n"
+
+        with open(".env", "w") as env_file:
+            env_file.write(env_content)
+
+        os.system("cls" if os.name == "nt" else "clear")
+        print('-' * shutil.get_terminal_size().columns)
+        print('Restarting...')
+        print('-' * shutil.get_terminal_size().columns)
+        os.execv(sys.executable, ['python'] + sys.argv)
+
     @staticmethod
     def clear_console() -> None:
         '''Clears the console screen based on the operating system'''
         os.system("cls" if os.name == "nt" else "clear")
-
-    @classmethod
-    async def init(cls: SelfBot, token: str) -> None:
-        '''Initializes and starts the selfbot with the provided token'''
-        async with cls() as client:
-            await client.start(token, reconnect=True)
 
     async def on_ready(self) -> None:
         '''Logs selfbot status and details when connected to Discord'''
@@ -62,8 +83,7 @@ class SelfBot(Bot):
 
     async def on_message(self, message: Message) -> None:
         '''Processes only the selfbot's own messages'''
-        if message.author.id != self.user.id:
-            return
+        if message.author.id != self.user.id: return
         self.messages_sent += 1
         await self.process_commands(message)
 
@@ -80,6 +100,5 @@ class SelfBot(Bot):
     async def process_commands(self, message: Message) -> None:
         '''Processes commands using a custom context'''
         ctx = await self.get_context(message, cls=CustomContext)
-        if ctx.command is None:
-            return
+        if ctx.command is None: return
         await self.invoke(ctx)

@@ -8,8 +8,8 @@ import asyncio, random
 
 
 class FunCog(Cog):
-    def __init__(self, client: SelfBot) -> None:
-        self.client = client
+    def __init__(self, bot: SelfBot) -> None:
+        self.bot = bot
 
     @commands.command(name="8ball", description="Get an answer to your question", aliases=["8b", "ask", "eightball"])
     async def _8ball(self, ctx: CustomContext, *, question: str) -> None:
@@ -35,10 +35,10 @@ class FunCog(Cog):
             "Very doubtful.",
         ]
         answer = random.choice(responses)
-        await ctx.delete()
+        await ctx.success(delete=True)
         await ctx.send(f"🎱 **Question:** {question} **Answer:** {answer}")
 
 
 
-async def setup(client: SelfBot) -> None:
-    await client.add_cog(FunCog(client))
+async def setup(bot: SelfBot) -> None:
+    await bot.add_cog(FunCog(bot))
