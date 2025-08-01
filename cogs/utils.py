@@ -17,7 +17,7 @@ class Utils(Cog):
         await ctx.delete()
         ids = {"bravery": 1, "brilliance": 2, "balance": 3}
         api = "https://discord.com/api/v9/hypesquad/online"
-        async with ctx.session().post(api, json={"house_id": ids[house]}, headers={"Authorization": os.getenv('TOKEN')}) as res:
+        async with ctx.session.post(api, json={"house_id": ids[house]}, headers={"Authorization": os.getenv('TOKEN')}) as res:
             if res.status == 204: await ctx.success()
             else: await ctx.failure()
 

@@ -15,9 +15,9 @@ class Abuse(Cog):
     async def spam(self, ctx: CustomContext, amount: int, delay: int, * , message: str) -> None:
         '''Spam a message multiple times.'''
         if not (3 <= amount <= 100):
-            return await ctx.failure("Amount must be between 3 and 100.", delete_after=5)
+            return await ctx.failure(content="Amount must be between 3 and 100.", delete_after=5)
         if delay < 0:
-            return await ctx.failure("Delay cannot be negative.", delete_after=5)
+            return await ctx.failure(content="Delay cannot be negative.", delete_after=5)
         
         await ctx.success(delete=True)
         for _ in range(amount):

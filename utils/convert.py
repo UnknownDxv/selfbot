@@ -1,10 +1,9 @@
-
 def text_to_emojis(text: str) -> list[str]:
-    '''Convert text to emojis'''
+    '''Convert text to actual emoji characters'''
     emoji_list = []
     for char in text.lower():
         if char.isalpha():
-            emoji_list.append(f":regional_indicator_{char}:")
+            emoji_list.append(chr(0x1F1E6 + ord(char) - ord('a')))
         elif char.isdigit():
             num_map = {
                 "0": "0️⃣",

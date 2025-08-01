@@ -38,9 +38,9 @@ class SelfBot(Bot):
         kwargs.setdefault("sync_presence", True)
 
         super().__init__(**kwargs)
+        self.session = ClientSession()
         self.messages_sent = 0
         self.logger = logger
-        self.session = ClientSession
 
     @property
     def token(self) -> str:
