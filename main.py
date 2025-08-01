@@ -15,11 +15,14 @@ async def main() -> None:
     token = self_bot.token
     try:
         await self_bot.start(token, reconnect=True)
-    except KeyboardInterrupt:
-        logger.critical("Bot stopped by user with Ctrl+C.")
     except LoginFailure as e:
         logger.critical(f"Invalid TOKEN: {e}")
         self_bot.run_wizard()
+    finally:
+        await self_bot.close()
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        logger.critical("Bot stopped by user with Ctrl+C.")

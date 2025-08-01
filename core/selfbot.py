@@ -40,13 +40,16 @@ class SelfBot(Bot):
         super().__init__(**kwargs)
         self.messages_sent = 0
         self.logger = logger
-        self.session = ClientSession()
+        self.session = ClientSession
 
     @property
     def token(self) -> str:
         '''Returns your token wherever it is'''
-        if not TOKEN: self.run_wizard()
-        else: return TOKEN.strip('\"')
+        token = os.getenv("TOKEN")
+        if token is None:
+            self.run_wizard()
+        else:
+            return token.strip('"')
     
     @staticmethod
     def run_wizard():
@@ -102,3 +105,4 @@ class SelfBot(Bot):
         ctx = await self.get_context(message, cls=CustomContext)
         if ctx.command is None: return
         await self.invoke(ctx)
+
