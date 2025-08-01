@@ -92,13 +92,10 @@ class SelfBot(Bot):
 
     async def setup_hook(self) -> None:
         '''Loads bot extensions during setup'''
-        for filename in os.listdir('cogs'):
-            if filename.endswith('.py'):
-                cog_file = f'cogs.{filename[:-3]}'
-                try:
-                    await self.load_extension(cog_file)
-                except Exception as error:
-                    self.logger.error(f"Failed to load extension: {error}")
+        await self.load_extension("cogs.abuse")
+        await self.load_extension("cogs.error")
+        await self.load_extension("cogs.fun")
+        await self.load_extension("cogs.utils")
 
     async def process_commands(self, message: Message) -> None:
         '''Processes commands using a custom context'''

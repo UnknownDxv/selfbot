@@ -15,15 +15,17 @@ class Error(Cog):
         '''Handle all errors raised during command execution'''
         if hasattr(error, 'handled') and error.handled:
             return 
+        await ctx.failure()
+        command = ctx.command
+        prefix = self.bot.command_prefix
+        usage = ctx.format_signature(command)
 
-        if isinstance(error, commands.CommandNotFound):
-            return
-        elif isinstance(error, commands.CheckFailure):
+        if isinstance(error, commands.CheckFailure):
             await ctx.send(f'Check Failure: {str(error)}', delete_after=10)
         elif isinstance(error, commands.MissingRequiredArgument):
             await ctx.send(f'Missing Argument: `<{error.param.name}>` is required!', delete_after=10)
         elif isinstance(error, commands.BadArgument):
-            await ctx.send(f'Invalid Argument: {str(error)}', delete_after=10)
+            await ctx.send(f'Invalid Argument: Correct Usage: `{prefix + command.qualified_name} {usage}`', delete_after=10)
         elif isinstance(error, commands.BadLiteralArgument):
             await ctx.send(f'Invalid Literal Argument: Expected one of: {", ".join(error.literals)}', delete_after=10)
         elif isinstance(error, commands.CheckFailure):
@@ -54,6 +56,7 @@ class Error(Cog):
         elif isinstance(error, commands.NSFWChannelRequired):
             await ctx.send('This command can only be used in NSFW channels!', delete_after=10)
         else:
+            await ctx.failure()
             self.bot.logger.error(f'Unhandled error: {error.__class__.__name__}: {str(error)}')
 
 async def setup(bot: SelfBot) -> None:

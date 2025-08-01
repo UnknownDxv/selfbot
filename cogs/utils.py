@@ -21,6 +21,12 @@ class Utils(Cog):
             if res.status == 204: await ctx.success()
             else: await ctx.failure()
 
+    @commands.command(name="clean", description="Delete your own messages", aliases=['cl', 'purge'])
+    async def clean(self, ctx: CustomContext, limit: int = 10) -> None:
+        '''Delete your own messages'''
+        await ctx.delete()
+        await ctx.self_purge(limit)
+
 
 async def setup(bot: SelfBot) -> None:
     await bot.add_cog(Utils(bot))

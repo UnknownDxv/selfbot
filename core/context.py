@@ -3,8 +3,9 @@ from typing import Any, List, Optional, Union
 from aiohttp import ClientSession
 from discord import Message
 from urllib.parse import urlparse, ParseResult
-from discord.ext.commands import Context
+from discord.ext.commands import Command, Context
 from discord.guild import BanEntry
+import inspect
 
 
 class CustomContext(Context):
@@ -14,6 +15,29 @@ class CustomContext(Context):
     def session(self) -> ClientSession:
         '''Returns the bot's aiohttp session'''
         return self.bot.session
+
+    def format_signature(self, command: Command) -> str:
+        '''Formats the command signature'''
+        sig = inspect.signature(command.callback)
+        params = list(sig.parameters.values())[2:]
+
+        formatted = []
+        for param in params:
+            name = param.name
+            annotation = param.annotation
+            if annotation == inspect._empty:
+                annotation_name = "str"
+            elif hasattr(annotation, '__name__'):
+                annotation_name = annotation.__name__
+            else:
+                annotation_name = str(annotation)
+            
+            default = param.default
+            if default == inspect._empty:
+                formatted.append(f"<{name}: {annotation_name}>")
+            else:
+                formatted.append(f"[{name}: {annotation_name} = {default}]")
+        return " ".join(formatted)
 
     @staticmethod
     def is_valid_image_url(url: str) -> Optional[str]:
