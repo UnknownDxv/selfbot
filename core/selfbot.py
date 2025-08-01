@@ -96,6 +96,7 @@ class SelfBot(Bot):
         await self.load_extension("cogs.error")
         await self.load_extension("cogs.fun")
         await self.load_extension("cogs.utils")
+        await self.load_extension("cogs.troll")
 
     async def process_commands(self, message: Message) -> None:
         '''Processes commands using a custom context'''

@@ -6,7 +6,6 @@ from discord.ext.commands import Cog
 from core.context import CustomContext
 from core.selfbot import SelfBot
 import asyncio, random
-
 from utils.convert import text_to_emojis
 
 
